@@ -15,7 +15,8 @@ const highScoresList = document.getElementById('high-scores-list');
 let currentQuestionIndex = 0;
 let score = 0;
 let timer;
-let timeLimit = 60;
+let timeLimit = 30; // Set the time limit to 30 seconds
+const timeDeduction = 5; // Set the time deduction for an incorrect answer to 5 seconds
 
 const questions = [
   {
@@ -78,7 +79,7 @@ function loadQuestion() {
 
 function resetTimer() {
   clearInterval(timer);
-  timeLimit = 60;
+  timeLimit = 30; // Reset the time limit to 30 seconds
   updateTimerDisplay();
 }
 
@@ -88,7 +89,7 @@ function checkAnswer(selectedOption, correctAnswer) {
   if (selectedOption === correctAnswer) {
     score++;
   } else {
-    timeLimit -= 10; // Deduct 10 seconds for incorrect answer
+    timeLimit -= timeDeduction; // Deduct time for incorrect answer
   }
 
   currentQuestionIndex++;
