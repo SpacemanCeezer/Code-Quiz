@@ -45,7 +45,6 @@ const questions = [
   }
 ];
 
-
 function startQuiz() {
   startBtn.style.display = 'none';
   resetTimer();
@@ -68,7 +67,7 @@ function loadQuestion() {
   currentQuestion.options.forEach((option, index) => {
     const optionButton = document.createElement('button');
     optionButton.textContent = option;
-    optionButton.addEventListener('click', () => checkAnswer(option));
+    optionButton.addEventListener('click', () => checkAnswer(option, currentQuestion.correctAnswer));
     optionsContainer.appendChild(optionButton);
   });
 
@@ -83,11 +82,13 @@ function resetTimer() {
   updateTimerDisplay();
 }
 
-function checkAnswer(selectedOption) {
+function checkAnswer(selectedOption, correctAnswer) {
   const currentQuestion = questions[currentQuestionIndex];
 
-  if (selectedOption === currentQuestion.correctAnswer) {
+  if (selectedOption === correctAnswer) {
     score++;
+  } else {
+    timeLimit -= 10; // Deduct 10 seconds for incorrect answer
   }
 
   currentQuestionIndex++;
