@@ -3,23 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <link rel="stylesheet" href="/assets/style.css">
   <title>JavaScript Quiz</title>
 </head>
-<body>
-  <div id="quiz-container">
-    <h1>JavaScript Quiz</h1>
-    <button id="start-btn">Start Quiz</button>
-    <div id="question-container"></div>
-    <div id="options-container"></div>
-    <button id="submit-btn" style="display: none;">Submit Answer</button>
-    <div id="result-container"></div>
-    <form id="score-form" style="display: none;">
-      <label for="initials">Enter Initials:</label>
-      <input type="text" id="initials" maxlength="3" required>
-      <button type="submit">Save Score</button>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+  <div id="quiz-container" class="max-w-lg p-8 bg-white shadow-md rounded-md">
+    <h1 class="text-3xl font-bold mb-6">JavaScript Quiz</h1>
+    <div id="timer-container" class="mb-4">Time: <span id="timer" class="font-bold text-blue-500">60</span> seconds</div>
+    <button id="start-btn" class="border border-blue-500 text-blue-500 px-4 py-2 rounded-md hover:bg-blue-500 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition">Start Quiz</button>
+    <div id="question-container" class="my-4 border border-gray-300 p-4 rounded-md"></div>
+    <div id="options-container" class="space-y-2 border border-gray-300 p-4 rounded-md"></div>
+    <button id="submit-btn" style="display: none;" class="border border-blue-500 text-blue-500 px-4 py-2 rounded-md hover:bg-blue-500 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition">Submit Answer</button>
+    <div id="result-container" class="mt-4"></div>
+    <form id="score-form" style="display: none;" class="mt-4">
+      <label for="initials" class="block mb-2">Enter Initials:</label>
+      <input type="text" id="initials" maxlength="3" required class="border border-gray-300 px-2 py-1 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+      <button type="submit" class="border border-blue-500 text-blue-500 px-4 py-2 rounded-md hover:bg-blue-500 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition">Save Score</button>
     </form>
+
+    <!-- Add a section for high scores -->
+    <div id="high-scores" class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Scores</h2>
+      <ul id="high-scores-list" class="list-disc pl-4"></ul>
+    </div>
   </div>
+
   <script src="/assets/script.js"></script>
+  <script src="/assets/highscores.js"></script>
 </body>
 </html>

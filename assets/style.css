@@ -7,6 +7,8 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+      background: linear-gradient(to bottom right, #001220, #FBAE3C);
+  
   }
   
   #quiz-container {
@@ -23,6 +25,11 @@ body {
     margin: 10px;
   }
   
+  #timer-container {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
   #result-container {
     font-size: 18px;
     margin-top: 20px;
@@ -31,5 +38,4 @@ body {
   #score-form {
     margin-top: 20px;
   }
-  
   
